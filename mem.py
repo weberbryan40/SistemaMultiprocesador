@@ -32,8 +32,8 @@ class MEM:
 
     def update_data(self,address,new_data):
         self.registers[address] = new_data
-        print("MEM")
-        print(self.registers)
+        #print("MEM")
+        #print(self.registers)
         return
 
     def read_data(self,address):

@@ -15,22 +15,22 @@ class CPU:
                 if self.ins_cycles <= 0:
                     if self.instruction == 'W' or self.instruction == 'R':
                         self.memory_bus.release_bus()
-                        stdout.write(self.id + " libera el mutex ")
-                        stdout.write('\n')
+                        #stdout.write(self.id + " libera el mutex ")
+                        #stdout.write('\n')
                     self.instruction,self.cycles,self.address = self.fetch.create_new_instruction()
                     if self.instruction == 'W':
-                        stdout.write(self.id + " toma instruccion de " + self.instruction + " en la posicion " + str(self.address) + ". Duracion: " + str(self.cycles))
-                        stdout.write('\n')
+                        #stdout.write(self.id + " toma instruccion de " + self.instruction + " en la posicion " + str(self.address) + ". Duracion: " + str(self.cycles))
+                        #stdout.write('\n')
                         self.cache.write_data(self.address%8,self.address//8,self.id)
                         self.control_cache.write_data_mem(self.address,self.id)
                     elif self.instruction == 'R':
                         value = self.cache.read_data(self.address%8,self.address//8)
                         if value == 'CACHE MISS':
-                            stdout.write(self.id + " tuvo un caché miss en una instrucción " + self.instruction + " en la posicion " + str(self.address))
+                            #stdout.write(self.id + " tuvo un caché miss en una instrucción " + self.instruction + " en la posicion " + str(self.address))
                             self.control_cache.update_data(self.address)
                     else:
-                        stdout.write(self.id + " toma instruccion de " + self.instruction + " . Duracion: " + str(self.cycles))
-                        stdout.write('\n')
+                        #stdout.write(self.id + " toma instruccion de " + self.instruction + " . Duracion: " + str(self.cycles))
+                        stdout.write('')
                 self.execute=False
     
     def __init__(self,id,mem_bus,caches):

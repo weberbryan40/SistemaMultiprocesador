@@ -82,7 +82,9 @@ class Clock:
         self.thread.start()
         #self.drw.start()
         return
-    
+
+    def get_cache_data(self):
+        return self.system.get_cache_data()
 
     
         

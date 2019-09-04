@@ -22,3 +22,10 @@ class System:
         for cpu in self.cpus:
             cpu.new_cycle()
         return
+
+    def get_cache_data(self):
+        data = [self.cache1.get_cache_data(),
+                self.cache2.get_cache_data(),
+                self.cache3.get_cache_data(),
+                self.cache4.get_cache_data()]
+        return data
